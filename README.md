@@ -3,7 +3,7 @@
 
     import pandas as pd    // importing pandas
     
-    cars = pd.read_csv('cars.csv')    // reads the csv file and and stores in the variable cars
+    cars = pd.read_csv('cars.csv')   // reads the csv file and and stores in the variable cars
     cars
     
     cars.head()    // dislays the first 5 rows of the DataFrame
