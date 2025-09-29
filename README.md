@@ -1,28 +1,52 @@
-**************PROGRAMMING ASSIGNMENT 2**************
-# 1. PROBLEM 1: Using knowledge obtained from the experiment and demonstrations: a. Load the corresponding .csv file into a data frame named cars using pandas b. Display the first five and last five rows of the resulting cars.
+# **GATSON_EMR_PA3**
 
-    import pandas as pd    // importing pandas
-    
-    cars = pd.read_csv('cars.csv')   // reads the csv file and and stores in the variable cars
-    cars
-    
-    cars.head()    // dislays the first 5 rows of the DataFrame
-    cars.tail()    // displays the last 5 rows of the DataFrame
+# **ECE Programming Assignment 3**
+## **PROBLEM 1**
+This program performs basic data exploration on automotive performance data. It loads vehicle specifications from a CSV file
 
+---
+This loads the automotive dataset from 'cars.csv' and displays all vehicle models with their specifications including mpg, cylinders, horsepower, and other metrics.
+```python
+import pandas as pd    #Import pandas library for data manipulation
+cars = pd.read_csv('cars.csv')   #Load the automotive dataset from CSV file
+cars
+```
 
-# 2. PROBLEM 2: Using the dataframe cars in problem 1, extract the following information using subsetting, slicing and indexing operations. a. Display the first five rows with odd-numbered columns (columns 1, 3, 5, 7...) of cars. b. Display the row that contains the ‘Model’ of ‘Mazda RX4’. c. How many cylinders (‘cyl’) does the car model ‘Camaro Z28’ have? d. Determine how many cylinders (‘cyl’) and what gear type (‘gear’) do the car models ‘Mazda RX4 Wag’, ‘Ford Pantera L’ and ‘Honda Civic’ have.
-    
-    import pandas as pd   // importing pandas
-    
-    cars = pd.read_csv('cars.csv')    // reads the csv file and and stores in the variable cars
-    cars
-    
-    odd_columns = cars.iloc[:,1::2]   // selects every odd numbered column using iloc
-    result = odd_columns.head()      // dislays the first 5 rows of the odd numbered columns
-    result
-    
-    cars[0:1]  // displays the first row of the DataFrame
-    
-    cars.loc[cars['Model']=='Camaro Z28', ['Model', 'cyl']]    // selects rows where the model and camaro is equal, but displays model and cyl columns only
-    
-    cars.loc[[1,28,18],['Model', 'cyl', 'gear']]   // selects rows with 1, 28, 18, but displays model, cyl, and gear columns only
+This shows first five vehicles in the dataset to quickly understand the data structure and content and last five vehicles in the dataset to examine the end portion of the data.
+```python
+cars.head()    #Show the first five rows to understand data structure
+cars.tail()    #Display the last five rows to examine the dataset's end
+```
+
+## **PROBLEM 1**
+This program demonstrates advanced data filtering and selection techniques on the automotive dataset. It shows how to extract specific columns, filter rows based on conditions, and select particular data subsets
+
+---
+This loads the automotive dataset from 'cars.csv' and displays all vehicle models with their specifications including mpg, cylinders, horsepower, and other metrics.
+```python
+import pandas as pd    #Import pandas for data analysis
+cars = pd.read_csv('cars.csv')   #Load the dataset for advanced filtering operations
+cars
+```
+This selects every second column starting from position 1 (odd-indexed columns) to create a simplified dataset with fewer features and extracts only the first row of the dataset.
+```python
+odd_columns = cars.iloc[:,1::2]   #Select every second column starting from position 1 (odd-indexed columns)
+
+result = odd_columns.head()       #Display first five rows of the filtered columns
+result
+
+cars[0:1] 
+```
+
+This filters the dataset to find the 'Camaro Z28' model and returns only its name and cylinder count for specific analysis.
+```python
+cars.loc[cars['Model']=='Camaro Z28', ['Model', 'cyl']]    #Filter dataset to find specific vehicle 'Camaro Z28' and return only name and cylinders
+```
+
+This selects three specific vehicles by their row indices and returns their model names, cylinder counts, and gear information for comparison.
+```python
+cars.loc[[1,28,18],['Model', 'cyl', 'gear']]     #Select three specific vehicles by row indices and return their model, cylinders, and gears
+```
+
+---
+-VERSION 2-
